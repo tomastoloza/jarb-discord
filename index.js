@@ -5,11 +5,11 @@ const client = new Discord.Client();
 
 client.once('ready', () => {
     console.log('Ready!');
+    client.user.setActivity('Roasteando a Mati 🏳️‍🌈', {type: 'PLAYING'});
+
 });
 
-console.log(process.env.BOT_TOKEN)
 client.login(process.env.BOT_TOKEN);
-
 
 const matiId = "517806671423209473"
 client.on('message', message => {
