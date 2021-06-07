@@ -5,7 +5,7 @@ const client = new Discord.Client();
 
 client.once('ready', () => {
     console.log('Ready!');
-    client.user.setActivity('Roasteando a Mati 🏳️‍🌈', {type: 'PLAYING'});
+    client.user.setActivity('Roasting the people you love 💜', {type: 'PLAYING'});
 
 });
 
@@ -15,5 +15,11 @@ const matiId = "517806671423209473"
 client.on('message', message => {
     if (message.author.id === matiId) {
         message.react("🏳️‍🌈");
+    }
+
+    if (message.content.toLowerCase().includes("epi")){
+        const epiEmoji = message.guild.emojis.cache.find(emoji => emoji.name === "epi");
+        message.react(epiEmoji);
+
     }
 });
