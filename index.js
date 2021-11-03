@@ -1,5 +1,5 @@
 const inviteLink = `https://discord.com/oauth2/authorize?client_id=${global.clientId}&scope=bot+applications.commands`
-
+import { accounts } from './accounts.js';
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
@@ -11,15 +11,16 @@ client.once('ready', () => {
 
 client.login(process.env.BOT_TOKEN);
 
-const matiId = "517806671423209473"
 client.on('message', message => {
-    if (message.author.id === matiId) {
-        message.react("🏳️‍🌈");
-    }
+    accounts.forEach( account => {
+        if (message.author.id === account.id){
+            message.react("🏳️‍🌈");
+        };
+    });
 
     if (message.content.toLowerCase().includes("epi")){
         const epiEmoji = message.guild.emojis.cache.find(emoji => emoji.name === "epi");
         message.react(epiEmoji);
 
-    }
+    };
 });
