@@ -11,9 +11,10 @@ client.once('ready', () => {
 
 client.login(process.env.BOT_TOKEN);
 
-const matiId = "517806671423209473"
+const matiId = "517806671423209473";
+const kloppId = "514784584039268391";
 client.on('message', message => {
-    if (message.author.id === matiId) {
+    if (message.author.id === matiId || message.author.id == kloppId) {
         message.react("🏳️‍🌈");
     }
 
